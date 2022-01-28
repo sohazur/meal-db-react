@@ -6,16 +6,25 @@ const Category = () => {
   useEffect(() => {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=a`)
       .then((res) => res.json())
-      .then((data) => setMeals(data));
+      .then((data) => setMeals(data.meals));
+    // fetchPost();
   }, []);
+  // const fetchPost = async () => {
+  //   const fetchedPost = await fetch(
+  //     "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
+  //   );
+  //   const postContent = await fetchedPost.json();
+  //   setMeals(postContent);
+  // };
+  console.log(meals);
   return (
     <div className="category">
-      {meals.meals.map((meal) => (
+      {meals.map((meal) => (
         <Meal
           key={meal.idMeal}
           strMeal={meal.strMeal}
           strInstructions={meal.strInstructions}
-          strThumb={meal.strThumb}
+          strMealThumb={meal.strMealThumb}
           strYoutube={meal.strYoutube}
           strCategory={meal.strCategory}
         ></Meal>
