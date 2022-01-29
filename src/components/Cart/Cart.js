@@ -3,7 +3,6 @@ import "./Cart.css";
 
 const Cart = (props) => {
   const { cart } = props;
-  console.log(cart);
   let item = [];
   for (const meal of cart) {
     if (meal) {
@@ -15,7 +14,7 @@ const Cart = (props) => {
       <h1>Selected Item(s)</h1>
       <ol>
         {item.map((i) => (
-          <li key={i.idMeal}>{i.strMeal}</li>
+          <li key={i.idMeal + Math.random() * 100}>{i.strMeal}</li>
         ))}
       </ol>
     </div>
