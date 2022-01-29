@@ -10,9 +10,11 @@ const Category = () => {
       .then((res) => res.json())
       .then((data) => setMeals(data.meals));
   }, []);
-  useEffect(() => {
-    setCart();
-  }, []);
+
+  const handleAddToCart = (meal) => {
+    const newCart = [...cart, meal];
+    setCart(newCart);
+  };
   return (
     <div className="category">
       <div>
@@ -24,11 +26,12 @@ const Category = () => {
             strMealThumb={meal.strMealThumb}
             strYoutube={meal.strYoutube}
             strCategory={meal.strCategory}
+            handleAddToCart={handleAddToCart}
           ></Meal>
         ))}
       </div>
       <div>
-        <Cart></Cart>
+        <Cart cart={cart}></Cart>
       </div>
     </div>
   );
