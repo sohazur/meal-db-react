@@ -10,7 +10,7 @@ const Meal = (props) => {
     handleAddToCart,
   } = props;
   return (
-    <div className="meal-container" onClick={() => handleAddToCart(strMeal)}>
+    <div className="meal-container" onClick={() => handleAddToCart(props)}>
       <img src={strMealThumb} alt="" />
       <h2>{strMeal}</h2>
       <p>Category: {strCategory}</p>

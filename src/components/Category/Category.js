@@ -21,6 +21,7 @@ const Category = () => {
         {meals.map((meal) => (
           <Meal
             key={meal.idMeal}
+            idMeal={meal.idMeal}
             strMeal={meal.strMeal}
             strInstructions={meal.strInstructions}
             strMealThumb={meal.strMealThumb}
